@@ -14,7 +14,7 @@ A full-stack web application that allows users to browse, book, and manage hotel
 
 ---
 
-## 🧰 Tech Stack
+## 🧰 Tech Stack t
 
 | Layer | Technology |
 | --- | --- |
