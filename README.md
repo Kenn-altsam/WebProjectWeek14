@@ -1,4 +1,4 @@
-# 🏨 StayEase — Hotel & Apartment Booking Platform
+# 🏨 LankaStay — Hotel & Apartment Booking Platform
 
 A full-stack web application that allows users to browse, book, and manage hotel rooms and apartments. The platform supports guest reservations, property listings, and user authentication with role-based access.
 
