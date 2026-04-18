@@ -318,3 +318,17 @@ p:not([class]):not(:last-child) {
   max-width: 1920px;
   margin-inline: auto;
 }
+
+.btn {
+  color: var(--color-white);
+  padding: 4px 30px;
+  border-radius: 7px;
+  font-weight: 400;
+  font-size: 20px;
+  background-color: var(--color-light-blue);
+}
+
+.btn:hover {
+  transition-duration: 0.2s;
+  background-color: #4192ff;
+}
