@@ -1,12 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal, OnInit } from '@angular/core';
+
 import { Navbar } from '../../components/navbar/navbar';
+import { Devider } from '../../components/devider/devider';
+import { Hotel } from '../../models/hotel.model';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { HotelService } from '../../services/hotel';
 
 @Component({
   selector: 'app-hotel-details',
-  imports: [Navbar],
+  imports: [Navbar, Devider, RouterLink],
   templateUrl: './hotel-details.html',
   styleUrl: './hotel-details.css',
 })
-export class HotelDetails {
+export class HotelDetails implements OnInit{
+  route = inject(ActivatedRoute)
+  hotelService = inject(HotelService)
 
+  hotel = signal<Hotel | undefined>(undefined);
+
+  ngOnInit() {
+    this.getHotelDetail();
+  }
+
+  getHotelDetail() {
+    this.hotel.set(this.hotelService.getMockHotel())
+  }
 }

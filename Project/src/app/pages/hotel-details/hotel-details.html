@@ -1,1 +1,39 @@
 <app-navbar/>
+<app-devider/>
+
+<div class="main">
+    <div class="title">
+        <div class='breadcrumb'>
+            <a class='prev-page' routerLink='/home'>Home</a>
+            /
+            <span class="cur-page">Hotel details</span>
+        </div>
+
+        <div class="hotel-header">
+            <h1 class="top">{{ hotel()?.name }}</h1>
+            <p class="bottom">{{ hotel()?.location }}</p>
+        </div>
+    </div>
+
+    <div class='gallery'>
+        @for(img of hotel()?.images; track $index; let first = $first) {
+            <img [class.main-img]="first" class='img' [src]="img">
+        }
+    </div>
+
+    <div class='hotel-info'>
+        <div class="description"> 
+          <h3 class="section-title">About the place</h3>
+          <p class="description-text">{{hotel()?.description}}</p>
+        </div>
+      
+        <div class='book-block'>
+          <p class="booking-title">Start Booking</p>
+          <p class="price-row">
+            <span class="price">${{hotel()?.price}}</span> per Day
+          </p>
+          <button class='btn book-btn' routerLink='/booking'>Book Now!</button>
+        </div>
+      </div>
+
+</div>
