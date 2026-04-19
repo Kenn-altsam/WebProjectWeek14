@@ -47,19 +47,51 @@
 
 .banner-body-picture {
   position: relative;
+  min-width: 450px;
 }
 
 .banner-body-picture::before {
   content: "";
   display: block;
   position: absolute;
-  width: 560px;
-  height: 450px;
+  width: 100%;
+  height: 100%;
   top: 30px;
   left: 30px;
   z-index: -1;
   background: url("/icons/frame.svg") no-repeat center;
 }
 
+@media (max-width: 1300px) {
+  .banner-body {
+    column-gap: 80px;
+    min-width: 1315px;
+  }
+}
 
+@media (max-width: 1200px) {
+  .banner-body {
+    min-width: 1275px;
+  }
+  .banner-body-picture {
+    display: none;
+  }
+  .banner-body-left {
+    align-items: center;
+    text-align: center;
+    flex-shrink: 0;
+    row-gap: 35px;
+  }
+  .banner-body_title {
+    font-size: 70px;
+    line-height: 1.2;
+  }
+  .banner-body_description {
+    font-size: 22px;
+    line-height: 1.2;
+  }
+  .banner-body-info {
+    margin-top: 30px;
+  }
+}
 
