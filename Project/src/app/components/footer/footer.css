@@ -1,0 +1,7 @@
+.footer-main {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding:  55px 250px 55px 150px;
+}
