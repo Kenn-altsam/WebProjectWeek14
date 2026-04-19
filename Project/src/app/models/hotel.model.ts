@@ -6,6 +6,19 @@ export interface Hotel {
     num_of_rooms: number;
     description: string;  // about place, hotel
     images: string[];     // Gallery
-    facilities: string[]; // Wifi, parking, pool
+    facilities: Facility[]; // Wifi, parking, pool
     rating: number;
+    treasures: Treasure[];
+}
+
+export interface Treasure {
+    name: string;
+    category: string;
+    image: string;
+    isPopular?: boolean;
+}
+
+export interface Facility {
+    name: string;
+    icon: string;
 }
