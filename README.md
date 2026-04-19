@@ -1,4 +1,4 @@
-# 🏨 StayEase — Hotel & Apartment Booking Platform
+# 🏨 LankaStay — Hotel & Apartment Booking Platform
 
 A full-stack web application that allows users to browse, book, and manage hotel rooms and apartments. The platform supports guest reservations, property listings, and user authentication with role-based access.
 
@@ -29,25 +29,48 @@ A full-stack web application that allows users to browse, book, and manage hotel
 ## 📁 Project Structure
 
 ```
-stayease/
-├── frontend/          # Angular app
-│   └── src/
-│       ├── app/
-│       │   ├── components/
-│       │   │   ├── home/
-│       │   │   ├── login/
-│       │   │   ├── register/
-│       │   │   ├── property-list/
-│       │   │   ├── property-detail/
-│       │   │   └── bookings/
-│       │   ├── services/
-│       │   ├── interceptors/
-│       │   └── app.routes.ts
-│       └── index.html
-└── backend/           # Django project
-    ├── api/           # Django app
-    ├── manage.py
-    └── requirements.txt
+Web_Project_week14/
+├── README.md
+└── Project/                 # Angular application
+    ├── angular.json
+    ├── package.json
+    ├── public/
+    │   └── favicon.ico
+    ├── src/
+    │   ├── app/
+    │   │   ├── components/
+    │   │   │   ├── footer/
+    │   │   │   ├── hotel-card/
+    │   │   │   ├── navbar/
+    │   │   │   └── search-bar/
+    │   │   ├── pages/
+    │   │   │   ├── auth/
+    │   │   │   │   ├── login/
+    │   │   │   │   ├── register-owner/
+    │   │   │   │   └── register-user/
+    │   │   │   ├── booking/
+    │   │   │   │   ├── booking-info/
+    │   │   │   │   ├── payment/
+    │   │   │   │   └── payment-success/
+    │   │   │   ├── dashboard/
+    │   │   │   │   ├── admin/
+    │   │   │   │   ├── owner/
+    │   │   │   │   └── user/
+    │   │   │   ├── home/
+    │   │   │   └── hotel-details/
+    │   │   ├── services/
+    │   │   │   ├── auth.ts
+    │   │   │   ├── booking.ts
+    │   │   │   └── hotel.ts
+    │   │   ├── app.config.ts
+    │   │   ├── app.routes.ts
+    │   │   └── app.ts
+    │   ├── index.html
+    │   ├── main.ts
+    │   └── styles.css
+    ├── tsconfig.app.json
+    ├── tsconfig.json
+    └── tsconfig.spec.json
 ```
 
 ---
