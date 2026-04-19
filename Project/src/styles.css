@@ -326,6 +326,7 @@ p:not([class]):not(:last-child) {
   font-weight: 400;
   font-size: 20px;
   background-color: var(--color-light-blue);
+  box-shadow: 0px 0px 17.8px 1px rgba(0, 0, 0, 0.25);
 }
 
 .btn:hover {
