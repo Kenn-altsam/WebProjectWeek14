@@ -1,12 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpParams} from '@angular/common/http';
 
-interface SearchParams {
-  date: string;
-  guests: number;
-  location: string;
-}
-
 @Injectable({
   providedIn: 'root',
 })
