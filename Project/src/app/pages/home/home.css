@@ -66,6 +66,7 @@
   .banner-body {
     column-gap: 80px;
     min-width: 1315px;
+    margin-left: 40px;
   }
 }
 
@@ -99,5 +100,10 @@ app-search-bar {
   display: block;
   margin-top: 140px;
   align-items: center;
+}
+
+app-footer {
+  display: block;
+  min-width: 1441px;
 }
 
