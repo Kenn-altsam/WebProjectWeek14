@@ -36,4 +36,31 @@
         </div>
       </div>
 
+      <div class='facilities'> 
+        @for (facility of hotel()?.facilities; track $index) {
+          <i class="fa-solid {{facility.icon}}"></i>
+        }
+        @for (facility of hotel()?.facilities; track $index) {
+          <span class='facility-name'>{{facility.name}}</span>
+        }
+      </div>
+
+      <div class="treasures">
+        <h3 class="section-title">Treasure to Choose</h3>
+        <div class="treasure-grid">
+          @for (treasure of hotel()?.treasures; track $index) {
+            <div class="treasure-card">
+              @if (treasure.isPopular) {
+                <span class="popular-badge">Popular Choice</span>
+              }
+              <img [src]="treasure.image" alt="treasure.name">
+              <p class="treasure-name">{{ treasure.name }}</p>
+              <p class="treasure-category">{{ treasure.category }}</p>
+            </div>
+          }
+        </div>
+      </div>
+
+
+
 </div>

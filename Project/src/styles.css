@@ -295,7 +295,7 @@ body {
 }
 
 svg *[fill] { fill: currentColor }
-svg *[stroke] { troke: currentColor }
+svg *[stroke] { stroke: currentColor }
 
 a, button, input, textarea, svg * {
   transition-duration: var(--transition-duration);
