@@ -260,6 +260,7 @@ svg * {
   --color-black: #1E1E1E;
   --color-gray: #B0B0B0;
   --color-light-gray: #EAF1FF;
+  --color-light-green: #1ABC9C;
 
   --font-family-base: 'Poppins', sans-serif;
   --font-family-accent: 'Inter', sans-serif;
@@ -294,7 +295,7 @@ body {
 }
 
 svg *[fill] { fill: currentColor }
-svg *[stroke] { troke: currentColor }
+svg *[stroke] { stroke: currentColor }
 
 a, button, input, textarea, svg * {
   transition-duration: var(--transition-duration);
