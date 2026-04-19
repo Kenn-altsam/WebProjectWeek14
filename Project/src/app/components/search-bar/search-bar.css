@@ -1,0 +1,109 @@
+
+
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 1160px;
+  padding: 30px 45px;
+  border-radius: 42px;
+  background-color: #EAF1FF;
+}
+
+.search-btn {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  color: var(--color-black);
+  font-family: var(--font-family-accent);
+  width: 210px;
+  border-radius: 12px;
+  padding: 12px 20px;
+  column-gap: 15px;
+  background-color: var(--color-white);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.search-btn-arrow-below {
+  margin-left: 30px;
+}
+
+.dropdown {
+  position: absolute;
+  display: flex;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 12px;
+  background-color: var(--color-white);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.dropdown input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+}
+
+.person-counting {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 30px;
+}
+
+.location-text {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 120px;   /* This controls where the '...' starts */
+}
+
+.personNumberButton {
+  padding: 2px 20px;
+  color: var(--color-black);
+  border-radius: 8px;
+  background-color: var(--color-gray);
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.personNumberButton:hover {
+  background-color: #4192ff;
+}
+
+@media (max-width: 1300px) {
+  .search-bar {
+    margin-left: 55px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .search-bar {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    min-width: 0;
+    max-width: 100%;
+
+    width: fit-content;
+    margin: -75px 515px;
+    justify-items: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+  }
+  .to-search-button {
+    grid-column: span 1;
+    width: 100%;
+    max-width: 210px;
+  }
+
+  .dropdown {
+    top: 0;
+    left: 240px;
+  }
+}
