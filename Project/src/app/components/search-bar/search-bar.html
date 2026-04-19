@@ -1,1 +1,60 @@
-<p>search-bar works!</p>
+<div class="search-bar container">
+
+  <div class="search-btn" (click)="toggle('date', $event)")>
+    <img src="/icons/calendar.svg" alt="calendar icon">
+    @if (selectedDate) {
+      {{selectedDate}}
+    } @else {
+      Check available
+    }
+
+  @if (isOpen('date')) {
+    <div class="dropdown">
+      <input type="date"
+      [(ngModel)] = 'selectedDate'
+      (click)="$event.stopPropagation()"
+      >
+    </div>
+  }
+  </div>
+
+  <div class="search-btn" (click)="toggle('person', $event)">
+    <img src="/icons/person.svg" alt="person icon">
+
+    Person
+    {{guestCount}}
+
+    <img class="search-btn-arrow-below" src="/icons/arrow_back_ios_new.svg" alt="person icon">
+
+    @if (isOpen('person')) {
+      <div class="dropdown person-counting" (click)="$event.stopPropagation()">
+        <button class="personNumberButton" (click)="guestCount = (guestCount > 1) ? guestCount - 1: 1; $event.stopPropagation()">-</button>
+          {{guestCount}}
+        <button class="personNumberButton" (click)="guestCount = (guestCount<4) ? guestCount + 1: guestCount; $event.stopPropagation()">+</button>
+      </div>
+    }
+  </div>
+
+  <div class="search-btn" (click)="toggle('location', $event)">
+    <img src="/icons/add_location_alt.svg" alt="person icon">
+    <div class="location-text">
+      @if (selectedLocation) {
+        {{selectedLocation}}
+      }
+      @else {
+        Select Location
+      }
+    </div>
+
+    @if (isOpen('location')) {
+      <div class="dropdown">
+        <input type="text"
+        [(ngModel)] = 'selectedLocation'
+        placeholder="City..."
+        (click)="$event.stopPropagation()">
+      </div>
+    }
+  </div>
+
+  <button class="to-search-button btn" (click)="onSearch()">Search</button>
+</div>
