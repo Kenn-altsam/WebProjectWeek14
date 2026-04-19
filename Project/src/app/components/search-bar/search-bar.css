@@ -81,6 +81,12 @@
   }
 }
 
+@media (max-width: 1200px) {
+  .search-bar {
+    margin-left: 85px;
+  }
+}
+
 @media (max-width: 1000px) {
   .search-bar {
     display: grid;
@@ -90,7 +96,7 @@
     max-width: 100%;
 
     width: fit-content;
-    margin: -75px 515px;
+    margin: -75px 555px;
     justify-items: center;
     align-items: center;
     gap: 20px;
