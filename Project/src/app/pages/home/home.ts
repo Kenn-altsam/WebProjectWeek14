@@ -20,5 +20,7 @@ import {HotelService} from '../../services/hotel';
   styleUrl: './home.css',
 })
 export class Home {
-
+  scrollToElement(element: HTMLElement) {
+    element.scrollIntoView({behavior: 'smooth'});
+  }
 }
