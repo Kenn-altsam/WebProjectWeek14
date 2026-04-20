@@ -1,1 +1,12 @@
-<p>hotel-card works!</p>
+
+
+<div class="most-picked-grid">
+  @for (hotel of mostPickedHotels; track hotel.id) {
+    <a class="most-picked-grid-link" href="">
+      <div class="main" [attr.data-title]="'$' + hotel.price + ' per night'" [style.background-image]="'url(' + hotel.images[0] + ')'">
+        <p class="name">{{ hotel.name }}</p>
+        <p class="location">{{ hotel.location }}</p>
+      </div>
+    </a>
+  }
+</div>
