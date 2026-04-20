@@ -5,10 +5,11 @@ import { Devider } from '../../components/devider/devider';
 import { Hotel } from '../../models/hotel.model';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { HotelService } from '../../services/hotel';
+import { Footer } from '../../components/footer/footer';
 
 @Component({
   selector: 'app-hotel-details',
-  imports: [Navbar, Devider, RouterLink],
+  imports: [Navbar, Devider, RouterLink, Footer],
   templateUrl: './hotel-details.html',
   styleUrl: './hotel-details.css',
 })
