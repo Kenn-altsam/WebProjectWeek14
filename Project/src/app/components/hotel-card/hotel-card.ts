@@ -1,10 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {Hotel} from '../../models/hotel.model';
 import {HotelService} from '../../services/hotel';
+import {RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-hotel-card',
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './hotel-card.html',
   styleUrl: './hotel-card.css',
 })

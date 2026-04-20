@@ -14,7 +14,7 @@
           holiday with family. Time to make another<br/>
           memorable moments.
         </p>
-        <button class="banner-body_button btn">
+        <button class="banner-body_button btn" (click)="scrollToElement(target)">
           Show More
         </button>
         <div class="banner-body-info">
@@ -59,7 +59,7 @@
     </div>
   </section>
   <app-search-bar></app-search-bar>
-  <section class="most-picked">
+  <section class="most-picked" #target id = "more-hotels">
     <div class="most-picked-title">
       Most Picked
     </div>
