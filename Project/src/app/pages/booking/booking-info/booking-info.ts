@@ -50,6 +50,7 @@ export class BookingInfo implements OnInit {
   }
 
   book() {
+    if (this.selectedDate()) {
     this.bookingService.book({
       id: 1,
       user_id: 1,
@@ -60,6 +61,9 @@ export class BookingInfo implements OnInit {
       total_amount: this.total,
     });
     this.router.navigate(['/payment']);
+  } else {
+    alert("Please pick a date");
+  }
   }
 
 onDateChange(event: any) {
