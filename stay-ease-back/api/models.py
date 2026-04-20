@@ -1,5 +1,10 @@
 from django.db import models
 
+class ActiveHotelManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().filter(rating__gte=3.0)
+    
+    
 class Hotel(models.Model):
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
@@ -8,6 +13,9 @@ class Hotel(models.Model):
     description = models.TextField()
     rating = models.FloatField(default=0.0)
     created_at = models.DateTimeField(auto_now_add=True)
+
+    objects = models.Manager()
+    active = ActiveHotelManager()
 
     def __str__(self):
         return self.name
