@@ -1,55 +1,81 @@
 <div class="payment-page">
-    <div class="payment-card">
-  
-      <div class="logo">Lanka<span>Stay.</span></div>
-      <hr>
-  
-      <div class="stepper">
-        <div class="step active"><i class="fa-solid fa-check"></i></div>
-        <div class="step active"><i class="fa-solid fa-check"></i></div>
-        <div class="step">3</div>
-      </div>
-  
-      <h2>Payment</h2>
-      <p class="subtitle">Kindly follow the instructions below</p>
-  
-      <div class="payment-content">
-        <div class="booking-summary">
-          <p>Transfer LankaStay:</p>
-          <p class="summary-detail">
-            {{ booking()?.days }} Days at {{ booking()?.hotel?.name }}, {{ booking()?.hotel?.location }}
-          </p>
-          <p>Total: <strong>${{ booking()?.total_amount }} USD</strong></p>
-          <p>Initial Payment: <strong>${{ (booking()?.total_amount ?? 0) / 2 }}</strong></p>
-        </div>
-  
-        <div class="payment-form">
-          <div class="input-group">
-            <label>Card Number</label>
-            <input type="text" placeholder="Payment card number" [value]="cardNumber()" (input)="cardNumber.set($any($event.target).value)">
-          </div>
-  
-          <div class="input-group">
-            <label>Bank</label>
-            <input type="text" placeholder="Select Bank" [value]="bank()" (input)="bank.set($any($event.target).value)">
-          </div>
-  
-          <div class="input-group">
-            <label>Exp Date</label>
-            <input type="text" placeholder="Validation date" [value]="expDate()" (input)="expDate.set($any($event.target).value)">
-          </div>
-  
-          <div class="input-group">
-            <label>CVV</label>
-            <input type="text" placeholder="Beside the card" [value]="cvv()" (input)="cvv.set($any($event.target).value)">
-          </div>
-        </div>
-      </div>
-      
-      @if (errorMessage()) {
-        <p class="error">{{ errorMessage() }}</p>
-      }
-      <button class="btn" (click)="pay()">Pay Now</button>
-      <button class="cancel-btn" routerLink="/booking">Cancel</button>
+  <div class="payment-card">
+
+    <div class="logo">Lanka<span>Stay.</span></div>
+    <hr>
+
+    <div class="stepper">
+      <div class="step active"><i class="fa-solid fa-check"></i></div>
+      <div class="step active"><i class="fa-solid fa-check"></i></div>
+      <div class="step">3</div>
     </div>
+
+    <h2>Payment</h2>
+    <p class="subtitle">Kindly follow the instructions below</p>
+
+    <div class="payment-content">
+      <div class="booking-summary">
+        <p>Transfer LankaStay:</p>
+        <p class="summary-detail">
+          {{ booking()?.days }} Days booking
+        </p>
+        <p>Check-in: <strong>{{ booking()?.check_in }}</strong></p>
+        <p>Check-out: <strong>{{ booking()?.check_out }}</strong></p>
+        <p>Total: <strong>${{ booking()?.total_amount }} USD</strong></p>
+        <p>Initial Payment: <strong>${{ (booking()?.total_amount ?? 0) / 2 }}</strong></p>
+      </div>
+
+      <div class="payment-form">
+        <div class="input-group">
+          <label>Card Number</label>
+          <input
+            type="text"
+            placeholder="Payment card number"
+            [value]="cardNumber()"
+            (input)="cardNumber.set($any($event.target).value)"
+          >
+        </div>
+
+        <div class="input-group">
+          <label>Bank</label>
+          <input
+            type="text"
+            placeholder="Select Bank"
+            [value]="bank()"
+            (input)="bank.set($any($event.target).value)"
+          >
+        </div>
+
+        <div class="input-group">
+          <label>Exp Date</label>
+          <input
+            type="text"
+            placeholder="Validation date"
+            [value]="expDate()"
+            (input)="expDate.set($any($event.target).value)"
+          >
+        </div>
+
+        <div class="input-group">
+          <label>CVV</label>
+          <input
+            type="text"
+            placeholder="Beside the card"
+            [value]="cvv()"
+            (input)="cvv.set($any($event.target).value)"
+          >
+        </div>
+      </div>
+    </div>
+
+    @if (errorMessage()) {
+      <p class="error">{{ errorMessage() }}</p>
+    }
+
+    <button class="btn" (click)="pay()" [disabled]="isSubmitting()">
+      {{ isSubmitting() ? 'Processing...' : 'Pay Now' }}
+    </button>
+
+    <button class="cancel-btn" routerLink="/booking">Cancel</button>
   </div>
+</div>
