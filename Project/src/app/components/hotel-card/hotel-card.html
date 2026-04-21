@@ -1,12 +1,10 @@
-
-
-<div class="most-picked-grid">
-  @for (hotel of mostPickedHotels; track hotel.id) {
-    <a class="most-picked-grid-link" href="" [routerLink]="['/hotels', hotel.id]">
-      <div class="main" [attr.data-title]="'$' + hotel.price + ' per night'" [style.background-image]="'url(' + hotel.images[0] + ')'">
-        <p class="name">{{ hotel.name }}</p>
-        <p class="location">{{ hotel.location }}</p>
-      </div>
-    </a>
-  }
-</div>
+<a class="most-picked-grid-link" [routerLink]="['/hotels', hotel.id]">
+  <div
+    class="main"
+    [attr.data-title]="'$' + hotel.price + ' per night'"
+    [style.background-image]="'url(' + (hotel.images?.[0] || hotelImageUrl) + ')'"
+  >
+    <p class="name">{{ hotel.name }}</p>
+    <p class="location">{{ hotel.location }}</p>
+  </div>
+</a>
