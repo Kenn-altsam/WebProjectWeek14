@@ -2,9 +2,9 @@
 
   <!-- LEFT PANEL -->
   <div class="left-panel">
-    <div class="glass-card">
+    <a class="glass-card" routerLink="/home" aria-label="Go to home page">
       <span class="logo-blue">Lanka</span><span class="logo-dark">Stay.</span>
-    </div>
+    </a>
   </div>
 
   <!-- RIGHT PANEL -->
@@ -64,7 +64,7 @@
 
       <button class="login-btn" (click)="onLogin()">Login</button>
 
-      <a href="#" class="create-account">Create Account</a>
+      <a routerLink="/register" class="create-account">Create Account</a>
     </div>
   </div>
 
