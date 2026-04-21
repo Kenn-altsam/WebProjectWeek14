@@ -2,7 +2,7 @@
   <div
     class="main"
     [attr.data-title]="'$' + hotel.price + ' per night'"
-    [style.background-image]="'url(' + (hotel.images?.[0] || hotelImageUrl) + ')'"
+    [style.background-image]="'url(' + (hotel.images[0] || hotelImageUrl) + ')'"
   >
     <p class="name">{{ hotel.name }}</p>
     <p class="location">{{ hotel.location }}</p>

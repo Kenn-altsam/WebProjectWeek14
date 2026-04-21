@@ -5,12 +5,12 @@ import { HotelService } from '../../../services/hotel';
 import { BookingService } from '../../../services/booking';
 import { Auth } from '../../../services/auth';
 import { Hotel } from '../../../models/hotel.model';
-import { Devider } from '../../../components/devider/devider';
+// import { Devider } from '../../../components/devider/devider';
 
 @Component({
   selector: 'app-booking-info',
   standalone: true,
-  imports: [CommonModule, RouterLink, Devider],
+  imports: [CommonModule, RouterLink],
   templateUrl: './booking-info.html',
   styleUrl: './booking-info.css',
 })
