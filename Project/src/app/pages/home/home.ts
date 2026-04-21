@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import {Navbar} from '../../components/navbar/navbar';
 import {Devider} from '../../components/devider/devider';
 import {SearchBar} from '../../components/search-bar/search-bar';
@@ -9,7 +10,9 @@ import {HotelService} from '../../services/hotel';
 
 @Component({
   selector: 'app-home',
+  standalone: true,
   imports: [
+    CommonModule,
     Navbar,
     Devider,
     SearchBar,
@@ -19,7 +22,23 @@ import {HotelService} from '../../services/hotel';
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
-export class Home {
+export class Home implements OnInit {
+  private hotelService = inject(HotelService);
+
+  hotels: Hotel[] = [];
+  errorMessage = '';
+
+  ngOnInit(): void {
+    this.hotelService.getHotels().subscribe({
+      next: (data) => {
+        this.hotels = data;
+      },
+      error: () => {
+        this.errorMessage = 'Failed to load hotels';
+      }
+    });
+  }
+
   scrollToElement(element: HTMLElement) {
     element.scrollIntoView({behavior: 'smooth'});
   }
