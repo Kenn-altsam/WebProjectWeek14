@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  background-color: #f4f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1100px;
+  min-height: 720px;
+  box-shadow: 0 4px 32px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+}
+
+.left-panel,
+.right-panel {
+  flex: 1;
+  padding: 52px 52px 52px 52px;
+  display: flex;
+  flex-direction: column;
+}
+
+.divider {
+  width: 1px;
+  background-color: #e0e0e0;
+  margin: 40px 0;
+  flex-shrink: 0;
+}
+
+/* Brand */
+.brand {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 36px;
+  letter-spacing: -0.5px;
+  line-height: 1;
+}
+
+.brand-blue {
+  color: #2563eb;
+}
+
+.brand-dark {
+  color: #0f172a;
+}
+
+/* Panel title */
+.panel-title {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+/* Form section */
+.form-section {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+/* Field group */
+.field-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field-label {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: #1a1a2e;
+}
+
+.field-input {
+  width: 100%;
+  height: 52px;
+  border: 1.5px solid #d1d5db;
+  border-radius: 10px;
+  padding: 0 16px;
+  font-size: 0.92rem;
+  font-family: 'Poppins', sans-serif;
+  color: #1a1a2e;
+  background: #ffffff;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field-input::placeholder {
+  color: #b0b0b8;
+  font-size: 0.88rem;
+}
+
+.field-input:focus {
+  border-color: #2563eb;
+}
+
+/* Password wrapper */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper .field-input.password-input {
+  padding-right: 46px;
+}
+
+.eye-btn {
+  position: absolute;
+  right: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+}
+
+/* Register button */
+.register-btn {
+  width: 100%;
+  height: 56px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background-color 0.2s;
+  letter-spacing: 0.3px;
+}
+
+.register-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Login link */
+.login-link-wrapper {
+  text-align: center;
+  margin-top: 6px;
+}
+
+.login-link {
+  font-size: 0.92rem;
+  color: #0f172a;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.login-link:hover {
+  color: #2563eb;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    flex-direction: column;
+  }
+
+  .divider {
+    width: 90%;
+    height: 1px;
+    margin: 0 auto;
+  }
+
+  .left-panel,
+  .right-panel {
+    padding: 36px 28px;
+  }
+
+  .brand {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+
+  .panel-title {
+    font-size: 1.4rem;
+  }
+}

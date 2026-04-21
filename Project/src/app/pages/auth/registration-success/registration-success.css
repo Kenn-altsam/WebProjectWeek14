@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:host {
+  display: block;
+  width: 100%;
+  min-height: 100vh;
+  font-family: 'Poppins', sans-serif;
+}
+
+.page-wrapper {
+  min-height: 100vh;
+  width: 100%;
+  background-image: url('/Users/kenn_/my_file/Semester_4th/Web_Project_week14/Project/public/images/most-pickes-example.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  position: relative;
+}
+
+.page-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(200, 210, 220, 0.18);
+  z-index: 0;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 24px;
+  width: 100%;
+  max-width: 760px;
+  padding: 56px 60px 60px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.10);
+}
+
+/* Brand */
+.brand {
+  font-size: 2rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 36px;
+  line-height: 1;
+}
+
+.brand-blue {
+  color: #2563eb;
+}
+
+.brand-dark {
+  color: #0f172a;
+}
+
+/* Checkmark */
+.checkmark-wrapper {
+  margin-bottom: 28px;
+}
+
+.check-icon {
+  width: 80px;
+  height: 80px;
+}
+
+/* Heading */
+.success-heading {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #2563eb;
+  margin-bottom: 14px;
+  line-height: 1.2;
+  letter-spacing: -0.3px;
+}
+
+/* Subtitle */
+.success-subtitle {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 40px;
+  letter-spacing: 0.1px;
+}
+
+/* Button */
+.book-btn {
+  width: 320px;
+  max-width: 100%;
+  height: 62px;
+  background-color: #2563eb;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.25rem;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background-color 0.2s;
+}
+
+.book-btn:hover {
+  background-color: #1d4ed8;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .card {
+    padding: 40px 24px 44px 24px;
+    border-radius: 16px;
+  }
+
+  .success-heading {
+    font-size: 1.7rem;
+  }
+
+  .brand {
+    font-size: 1.6rem;
+  }
+
+  .book-btn {
+    width: 100%;
+  }
+}

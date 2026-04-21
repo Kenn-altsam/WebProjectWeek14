@@ -1,1 +1,188 @@
-<p>register-owner works!</p>
+<div class="page-wrapper">
+  <div class="card">
+
+    <div class="left-panel">
+      <div class="brand">
+        <span class="brand-blue">Lanka</span><span class="brand-dark">Stay.</span>
+      </div>
+
+      <div class="form-section">
+        <div class="field-group">
+          <label class="field-label">Name</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="Enter your name"
+            [(ngModel)]="name"
+            name="name"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">E mail</label>
+          <input
+            class="field-input"
+            type="email"
+            placeholder="name@gmail.com"
+            [(ngModel)]="email"
+            name="email"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Phone No</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="With Country Code"
+            [(ngModel)]="phoneNo"
+            name="phoneNo"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Country</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="Country Name"
+            [(ngModel)]="country"
+            name="country"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Nic</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="National Identity Card"
+            [(ngModel)]="nic"
+            name="nic"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Username</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="Username"
+            [(ngModel)]="username"
+            name="username"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Password</label>
+          <div class="password-wrapper">
+            <input
+              class="field-input password-input"
+              [type]="showPassword ? 'text' : 'password'"
+              placeholder="6+ characters"
+              [(ngModel)]="password"
+              name="password"
+            />
+            <button
+              type="button"
+              class="eye-btn"
+              (click)="togglePasswordVisibility()"
+              tabindex="-1"
+            >
+              <svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/>
+                <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/>
+                <line x1="1" y1="1" x2="23" y2="23"/>
+              </svg>
+              <svg *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                <circle cx="12" cy="12" r="3"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="right-panel">
+      <h2 class="panel-title">Register Your Hotel</h2>
+
+      <div class="form-section">
+        <div class="field-group">
+          <label class="field-label">Hotel Name</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="Full Name"
+            [(ngModel)]="hotelName"
+            name="hotelName"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Registration No</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="PVT(Ltd)"
+            [(ngModel)]="registrationNo"
+            name="registrationNo"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Address</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="Location"
+            [(ngModel)]="address"
+            name="address"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Upload Images</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="Upload"
+            [(ngModel)]="uploadImages"
+            name="uploadImages"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Upload Documents</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="Upload"
+            [(ngModel)]="uploadDocuments"
+            name="uploadDocuments"
+          />
+        </div>
+
+        <div class="field-group">
+          <label class="field-label">Facilities</label>
+          <input
+            class="field-input"
+            type="text"
+            placeholder="Describe"
+            [(ngModel)]="facilities"
+            name="facilities"
+          />
+        </div>
+
+        <button type="button" class="register-btn" (click)="register()">Register</button>
+
+        <div class="login-link-wrapper">
+          <a class="login-link" (click)="goToLogin()">Login</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

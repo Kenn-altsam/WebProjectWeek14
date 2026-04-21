@@ -1,1 +1,71 @@
-<p>login works!</p>
+<div class="page-wrapper">
+
+  <!-- LEFT PANEL -->
+  <div class="left-panel">
+    <div class="glass-card">
+      <span class="logo-blue">Lanka</span><span class="logo-dark">Stay.</span>
+    </div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right-panel">
+    <div class="form-container">
+      <h1 class="heading">Login Account</h1>
+
+      <div class="field-group">
+        <label class="field-label" for="username">Username</label>
+        <input
+          id="username"
+          class="field-input"
+          type="text"
+          placeholder="Username"
+          [(ngModel)]="username"
+          name="username"
+        />
+      </div>
+
+      <div class="field-group">
+        <label class="field-label" for="password">Password</label>
+        <div class="password-wrapper">
+          <input
+            id="password"
+            class="field-input password-input"
+            [type]="showPassword ? 'text' : 'password'"
+            placeholder="6+ characters"
+            [(ngModel)]="password"
+            name="password"
+          />
+          <button
+            type="button"
+            class="eye-toggle"
+            (click)="togglePasswordVisibility()"
+            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'"
+          >
+            <!-- Eye icon (visible) -->
+            <svg *ngIf="!showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+              <line x1="1" y1="1" x2="23" y2="23"/>
+            </svg>
+            <!-- Eye-off icon (hidden) -->
+            <svg *ngIf="showPassword" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#aaa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+              <circle cx="12" cy="12" r="3"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <p class="terms-text">
+        By signing up you agree to
+        <a href="#" class="terms-link">terms and conditions</a>
+        at zoho.
+      </p>
+
+      <button class="login-btn" (click)="onLogin()">Login</button>
+
+      <a href="#" class="create-account">Create Account</a>
+    </div>
+  </div>
+
+</div>
