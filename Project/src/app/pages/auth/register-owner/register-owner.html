@@ -1,1 +1,43 @@
-<p>register-owner works!</p>
+<div class="register-container">
+  <h2>Register as Owner</h2>
+
+  <form (ngSubmit)="onRegister()">
+    <div>
+      <label for="username">Username</label>
+      <input
+        id="username"
+        type="text"
+        name="username"
+        [(ngModel)]="username"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+    </div>
+
+    <div>
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+
+    <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success">{{ successMessage }}</p>
+
+    <button type="submit">Register as Owner</button>
+  </form>
+</div>
