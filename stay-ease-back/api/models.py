@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class ActiveHotelManager(models.Manager):
     def get_queryset(self):
@@ -13,6 +14,7 @@ class Hotel(models.Model):
     description = models.TextField()
     rating = models.FloatField(default=0.0)
     created_at = models.DateTimeField(auto_now_add=True)
+    is_active = models.BooleanField(default=True)
 
     objects = models.Manager()
     active = ActiveHotelManager()
@@ -28,6 +30,7 @@ class Booking(models.Model):
     days = models.IntegerField()
     total_amount = models.DecimalField(max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, null=True, blank=True, related_name='bookings')
 
     def __str__(self):
         return f"Booking for {self.hotel.name}"

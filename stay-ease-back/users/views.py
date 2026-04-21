@@ -18,6 +18,7 @@ def register(request):
 def login_view(request):
     username = request.data.get('username')
     password = request.data.get('password')
+    
     user = authenticate(username=username, password=password)
     if user:
         token, _ = Token.objects.get_or_create(user=user)
