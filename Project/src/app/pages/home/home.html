@@ -64,7 +64,12 @@
       Most Picked
     </div>
     <div class="most-picked-title-grid">
-      <app-hotel-card></app-hotel-card>
+      <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+      <app-hotel-card
+        *ngFor="let hotel of hotels"
+        [hotel]="hotel">
+      </app-hotel-card>
     </div>
   </section>
 </main>

@@ -1,5 +1,5 @@
 import { Component, inject, signal, OnInit } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { Navbar } from '../../components/navbar/navbar';
 import { Devider } from '../../components/devider/devider';
 import { Hotel } from '../../models/hotel.model';
@@ -9,21 +9,40 @@ import { Footer } from '../../components/footer/footer';
 
 @Component({
   selector: 'app-hotel-details',
-  imports: [Navbar, Devider, RouterLink, Footer],
+  standalone: true,
+  imports: [CommonModule,Navbar, Devider, RouterLink, Footer],
   templateUrl: './hotel-details.html',
   styleUrl: './hotel-details.css',
 })
-export class HotelDetails implements OnInit{
-  route = inject(ActivatedRoute)
-  hotelService = inject(HotelService)
+export class HotelDetails implements OnInit {
 
-  hotel = signal<Hotel | undefined>(undefined);
+  private route = inject(ActivatedRoute);
+  private hotelService = inject(HotelService);
 
-  ngOnInit() {
+  hotel = signal<Hotel | null>(null);
+  errorMessage = '';
+
+  ngOnInit(): void {
     this.getHotelDetail();
   }
 
-  getHotelDetail() {
-    this.hotel.set(this.hotelService.getMockHotel())
+  getHotelDetail(): void {
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+
+    if (!id) {
+      this.errorMessage = 'Invalid hotel id';
+      return;
+    }
+
+    this.hotelService.getHotelById(id).subscribe({
+      next: (data) => {
+        this.hotel.set(data);
+        this.hotelService.setSelectedHotel(data);
+      },
+      error: () => {
+        this.errorMessage = 'Failed to load hotel details';
+      }
+    });
   }
+
 }

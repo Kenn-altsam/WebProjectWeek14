@@ -1,66 +1,74 @@
-<app-navbar/>
-<app-devider/>
+<app-navbar></app-navbar>
+<app-devider></app-devider>
 
 <div class="main">
-    <div class="title">
-        <div class='breadcrumb'>
-            <a class='prev-page' routerLink='/home'>Home</a>
-            /
-            <span class="cur-page">Hotel details</span>
-        </div>
-
-        <div class="hotel-header">
-            <h1 class="top">{{ hotel()?.name }}</h1>
-            <p class="bottom">{{ hotel()?.location }}</p>
-        </div>
+  <div class="title">
+    <div class="breadcrumb">
+      <a class="prev-page" routerLink="/home">Home</a>
+      /
+      <span class="cur-page">Hotel details</span>
     </div>
 
-    <div class='gallery'>
-        @for(img of hotel()?.images; track $index; let first = $first) {
-            <img [class.main-img]="first" class='img' [src]="img">
-        }
+    <div class="hotel-header">
+      <h1 class="top">{{ hotel()?.name }}</h1>
+      <p class="bottom">{{ hotel()?.location }}</p>
+    </div>
+  </div>
+
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+  <div class="gallery" *ngIf="hotel()?.images?.length; else fallbackImage">
+    @for (img of hotel()?.images; track $index; let first = $first) {
+      <img [class.main-img]="first" class="img" [src]="img" />
+    }
+  </div>
+
+  <ng-template #fallbackImage>
+    <div class="gallery">
+      <img class="main-img img" src="/images/most-pickes-example.png" alt="Hotel image" />
+    </div>
+  </ng-template>
+
+  <div class="hotel-info">
+    <div class="description">
+      <h3 class="section-title">About the place</h3>
+      <p class="description-text">{{ hotel()?.description }}</p>
     </div>
 
-    <div class='hotel-info'>
-        <div class="description"> 
-          <h3 class="section-title">About the place</h3>
-          <p class="description-text">{{hotel()?.description}}</p>
-        </div>
-      
-        <div class='book-block'>
-          <p class="booking-title">Start Booking</p>
-          <p class="price-row">
-            <span class="price">${{hotel()?.price}}</span> per Day
-          </p>
-          <button class='btn book-btn' routerLink='/booking'>Book Now!</button>
-        </div>
-      </div>
+    <div class="book-block">
+      <p class="booking-title">Start Booking</p>
+      <p class="price-row">
+        <span class="price">${{ hotel()?.price }}</span> per Day
+      </p>
+      <button class="btn book-btn" routerLink="/booking">Book Now!</button>
+    </div>
+  </div>
 
-      <div class='facilities'> 
-        @for (facility of hotel()?.facilities; track $index) {
-          <i class="fa-solid {{facility.icon}}"></i>
-        }
-        @for (facility of hotel()?.facilities; track $index) {
-          <span class='facility-name'>{{facility.name}}</span>
-        }
-      </div>
+  <div class="facilities" *ngIf="hotel()?.facilities?.length">
+    @for (facility of hotel()?.facilities; track $index) {
+      <i class="fa-solid {{ facility.icon }}"></i>
+    }
+    @for (facility of hotel()?.facilities; track $index) {
+      <span class="facility-name">{{ facility.name }}</span>
+    }
+  </div>
 
-      <div class="treasures">
-        <h3 class="section-title">Treasure to Choose</h3>
-        <div class="treasure-grid">
-          @for (treasure of hotel()?.treasures; track $index) {
-            <div class="treasure-card">
-              @if (treasure.isPopular) {
-                <span class="popular-badge">Popular Choice</span>
-              }
-              <img [src]="treasure.image" alt="treasure.name">
-              <p class="treasure-name">{{ treasure.name }}</p>
-              <p class="treasure-category">{{ treasure.category }}</p>
-            </div>
+  <div class="treasures" *ngIf="hotel()?.treasures?.length">
+    <h3 class="section-title">Treasure to Choose</h3>
+    <div class="treasure-grid">
+      @for (treasure of hotel()?.treasures; track $index) {
+        <div class="treasure-card">
+          @if (treasure.isPopular) {
+            <span class="popular-badge">Popular Choice</span>
           }
+          <img [src]="treasure.image" [alt]="treasure.name" />
+          <p class="treasure-name">{{ treasure.name }}</p>
+          <p class="treasure-category">{{ treasure.category }}</p>
         </div>
-      </div>
+      }
+    </div>
+  </div>
 </div>
 
-<app-devider/>
-<app-footer/>
+<app-devider></app-devider>
+<app-footer></app-footer>
