@@ -1,47 +1,48 @@
 <div class="booking-page">
-    <div class="booking-card">
-  
-      <div class="logo">Lanka<span>Stay.</span></div>
-      <hr>
-  
-      <div class="stepper">
-        <div class="step active"><i class="fa-solid fa-check"></i></div>
-        <div class="step">2</div>
-        <div class="step">3</div>
-      </div>
-  
-      <h2>Booking Information</h2>
-      <p class="subtitle">Please fill up the blank fields below</p>
-  
-      <div class="booking-content">
-        <div class="hotel-preview">
-          <img [src]="hotel().images[0]" alt="hotel">
-          <p class="hotel-name">{{ hotel().name }}</p>
-          <p class="hotel-location">{{ hotel().location }}</p>
-        </div>
-  
-        <div class="booking-form">
-          <p class="form-label">How long will you stay?</p>
-          <div class="days-counter">
-            <button class="counter-btn minus" (click)="decrement()">−</button>
-            <span>{{ days() }} Days</span>
-            <button class="counter-btn plus" (click)="increment()">+</button>
-          </div>
-  
-          <p class="form-label">Pick a Date</p>
-          <div class="date-picker">
-              <input type="date" (change)="onDateChange($event)">
-          </div>
-          @if (checkIn()) {
-          <span class="date-range">{{ checkIn() }} - {{ checkOut() }}</span>
-          }
-  
-          <p class="total-text">You will pay <strong>${{ total }} USD</strong></p>
-          <p class="per-text">per <strong>{{ days() }} Days</strong></p>
-        </div>
-      </div>
-  
-      <button class="btn" (click)="book()">Book Now</button>
-      <button class="cancel-btn" routerLink="/hotels/1">Cancel</button>
+  <div class="booking-card">
+
+    <div class="logo">Lanka<span>Stay.</span></div>
+    <hr>
+
+    <div class="stepper">
+      <div class="step active"><i class="fa-solid fa-check"></i></div>
+      <div class="step">2</div>
+      <div class="step">3</div>
     </div>
+
+    <h2>Booking Information</h2>
+    <p class="subtitle">Please fill up the blank fields below</p>
+
+    <div class="booking-content">
+      <div class="hotel-preview">
+        <img [src]="hotel()?.images?.[0] || '/images/most-pickes-example.png'" alt="hotel">
+        <p class="hotel-name">{{ hotel()?.name }}</p>
+        <p class="hotel-location">{{ hotel()?.location }}</p>
+      </div>
+
+      <div class="booking-form">
+        <p class="form-label">How long will you stay?</p>
+        <div class="days-counter">
+          <button class="counter-btn minus" (click)="decrement()">−</button>
+          <span>{{ days() }} Days</span>
+          <button class="counter-btn plus" (click)="increment()">+</button>
+        </div>
+
+        <p class="form-label">Pick a Date</p>
+        <div class="date-picker">
+          <input type="date" (change)="onDateChange($event)">
+        </div>
+
+        @if (checkIn()) {
+          <span class="date-range">{{ checkIn() }} - {{ checkOut() }}</span>
+        }
+
+        <p class="total-text">You will pay <strong>${{ total }} USD</strong></p>
+        <p class="per-text">per <strong>{{ days() }} Days</strong></p>
+      </div>
+    </div>
+
+    <button class="btn" (click)="book()">Book Now</button>
+    <button class="cancel-btn" [routerLink]="['/hotels', hotel()?.id]">Cancel</button>
   </div>
+</div>
