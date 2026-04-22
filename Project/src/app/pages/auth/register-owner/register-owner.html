@@ -19,7 +19,7 @@
         </div>
 
         <div class="field-group">
-          <label class="field-label">E mail</label>
+          <label class="field-label">Email</label>
           <input
             class="field-input"
             type="email"
@@ -176,7 +176,11 @@
           />
         </div>
 
-        <button type="button" class="register-btn" (click)="register()">Register</button>
+        <p *ngIf="errorMessage" class="form-error">{{ errorMessage }}</p>
+
+        <button type="button" class="register-btn" (click)="register()" [disabled]="isLoading">
+          {{ isLoading ? 'Registering...' : 'Register' }}
+        </button>
 
         <div class="login-link-wrapper">
           <a class="login-link" (click)="goToLogin()">Login</a>

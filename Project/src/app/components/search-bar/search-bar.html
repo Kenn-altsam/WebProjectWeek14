@@ -56,5 +56,11 @@
     }
   </div>
 
-  <button class="to-search-button btn" (click)="onSearch()">Search</button>
+  <button class="to-search-button btn" (click)="onSearch()" [disabled]="isLoading">
+    {{ isLoading ? 'Searching...' : 'Search' }}
+  </button>
 </div>
+
+@if (errorMessage) {
+  <p class="search-error" role="alert">{{ errorMessage }}</p>
+}

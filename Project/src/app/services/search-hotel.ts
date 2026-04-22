@@ -1,20 +1,15 @@
 import { Injectable } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
+import { Observable, of } from 'rxjs';
+import { Hotel } from '../models/hotel.model';
+import { HotelSearchParams, HotelService } from './hotel';
 
 @Injectable({
   providedIn: 'root',
 })
   export class SearchHotel {
-  private apiUrl = 'http://localhost:8000/api/search/';
+  constructor(private hotelService: HotelService) {}
 
-  constructor(private http: HttpClient) {}
-
-  search(params: SearchParams) {
-    const queryParams = new HttpParams()
-      .set('date', params.date)
-      .set('guests', params.guests.toString())
-      .set('location', params.location);
-
-    return this.http.get(this.apiUrl, {params: queryParams});
+  search(params: HotelSearchParams): Observable<Hotel[]> {
+    return of(this.hotelService.searchHotels(params));
   }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {Hotel} from '../../models/hotel.model';
 import {HotelService} from '../../services/hotel';
 import {RouterLink} from '@angular/router';
@@ -11,7 +11,9 @@ import {RouterLink} from '@angular/router';
   templateUrl: './hotel-card.html',
   styleUrl: './hotel-card.css',
 })
-export class HotelCard implements OnInit {
+export class HotelCard implements OnInit, OnChanges {
+  @Input() hotels: Hotel[] | null = null;
+
   hotelImageUrl = '/images/most-pickes-example.png';
 
   mostPickedHotels: Hotel[] = [];
@@ -19,6 +21,16 @@ export class HotelCard implements OnInit {
   constructor(private hotelService: HotelService) {}
 
   ngOnInit() {
-    this.mostPickedHotels = this.hotelService.getMostPicked();
+    this.updateHotels();
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes['hotels']) {
+      this.updateHotels();
+    }
+  }
+
+  private updateHotels(): void {
+    this.mostPickedHotels = this.hotels?.length ? this.hotels : this.hotelService.getMostPicked();
   }
 }

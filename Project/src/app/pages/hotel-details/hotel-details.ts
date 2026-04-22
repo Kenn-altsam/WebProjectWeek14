@@ -24,6 +24,7 @@ export class HotelDetails implements OnInit{
   }
 
   getHotelDetail() {
-    this.hotel.set(this.hotelService.getMockHotel())
+    const hotelId = Number(this.route.snapshot.paramMap.get('id'));
+    this.hotel.set(this.hotelService.getHotelById(hotelId) || this.hotelService.getMockHotel())
   }
 }

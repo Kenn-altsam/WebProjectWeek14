@@ -117,7 +117,8 @@ app-footer {
   min-width: 1441px;
 }
 
-.most-picked {
+.most-picked,
+.search-results {
   display: grid;
   margin-top: 115px;
   row-gap: 20px;
@@ -133,4 +134,13 @@ app-footer {
   margin-bottom: 100px;
 }
 
+.search-results {
+  margin-top: 70px;
+}
+
+.search-results-meta,
+.search-results-empty {
+  color: var(--color-gray);
+  font-family: var(--font-family-accent);
+}
 

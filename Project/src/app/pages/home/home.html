@@ -58,7 +58,22 @@
       </div>
     </div>
   </section>
-  <app-search-bar></app-search-bar>
+  <app-search-bar (results)="onSearchResults($event)"></app-search-bar>
+  @if (hasSearched) {
+    <section class="search-results" id="search-results">
+      <div class="most-picked-title">
+        {{ searchTitle }}
+      </div>
+      @if (searchResults.length) {
+        <p class="search-results-meta">{{ searchResults.length }} matching stays found. Click a stay to view details.</p>
+        <div class="most-picked-title-grid">
+          <app-hotel-card [hotels]="searchResults"></app-hotel-card>
+        </div>
+      } @else {
+        <p class="search-results-empty">No stays match this search. Try Almaty, Astana, Aktau, Kolsay, Burabay, Turkistan, Atyrau, Charyn, or Medeu.</p>
+      }
+    </section>
+  }
   <section class="most-picked" #target id = "more-hotels">
     <div class="most-picked-title">
       Most Picked
