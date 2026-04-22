@@ -1,0 +1,97 @@
+.profile-page {
+  min-height: 100vh;
+  padding: 72px 24px;
+  background: #f5f7fb;
+  color: #0d1b3e;
+}
+
+.profile-panel {
+  width: min(720px, 100%);
+  margin: 0 auto;
+  padding: 36px;
+  background: #ffffff;
+  border: 1px solid #e2e7f0;
+  border-radius: 8px;
+  box-shadow: 0 20px 45px rgba(13, 27, 62, 0.08);
+}
+
+.eyebrow {
+  color: #2554e8;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin: 0 0 8px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 2rem;
+  margin: 0 0 28px;
+}
+
+.profile-details {
+  display: grid;
+  gap: 16px;
+  margin: 0 0 28px;
+}
+
+.profile-details div {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eef1f6;
+}
+
+dt {
+  color: #6b7280;
+  font-weight: 600;
+}
+
+dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+.home-link,
+.login-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  color: #ffffff;
+  background: #2554e8;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.home-link:hover,
+.login-link:hover {
+  background: #1a43cc;
+}
+
+.muted {
+  color: #6b7280;
+  margin: 0;
+}
+
+.profile-error {
+  color: #c62828;
+  margin: 0 0 18px;
+}
+
+@media (max-width: 560px) {
+  .profile-panel {
+    padding: 24px;
+  }
+
+  .profile-details div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}

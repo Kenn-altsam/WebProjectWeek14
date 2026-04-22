@@ -32,3 +32,20 @@
 .login-button {
   margin-inline: 50px;
 }
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.profile-link {
+  color: var(--color-dark-blue);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.profile-link:hover {
+  color: var(--color-light-blue);
+}

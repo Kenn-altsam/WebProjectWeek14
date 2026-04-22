@@ -1,5 +1,5 @@
 <header class="header">
-  <a href="#" class="header-logo">
+  <a routerLink="/home" class="header-logo">
     <img src="/icons/LankaStay.svg" alt="LankaStay logo" class="header-logo-image"
          width="145" height="40" loading="lazy"
     >
@@ -7,10 +7,10 @@
   <nav class="header-menu">
     <ul class="header-menu-list">
       <li class="header-menu-item">
-        <a href="/" class="header-menu-link">Home</a>
+        <a routerLink="/home" class="header-menu-link">Home</a>
       </li>
       <li class="header-menu-item">
-        <a href="/" class="header-menu-link">Hotels</a>
+        <a routerLink="/home" class="header-menu-link">Hotels</a>
       </li>
       <li class="header-menu-item">
         <a href="/" class="header-menu-link">About</a>
@@ -20,9 +20,18 @@
       </li>
     </ul>
   </nav>
-  <div class="header-actions">
-    <button class="login-button btn" type="button" routerLink="/login">
-      Login
+  <div class="header-actions" *ngIf="currentUser$ | async as user; else guestActions">
+    <a class="profile-link" routerLink="/dashboard/user">{{ user.username }}</a>
+    <button class="login-button btn" type="button" (click)="logout()">
+      Logout
     </button>
   </div>
+
+  <ng-template #guestActions>
+    <div class="header-actions">
+      <button class="login-button btn" type="button" routerLink="/login">
+      Login
+      </button>
+    </div>
+  </ng-template>
 </header>

@@ -104,7 +104,11 @@
         at zoho.
       </p>
 
-      <button class="register-btn" type="button">Register</button>
+      <p *ngIf="errorMessage" class="form-error">{{ errorMessage }}</p>
+
+      <button class="register-btn" type="button" (click)="onRegister()" [disabled]="isLoading">
+        {{ isLoading ? 'Registering...' : 'Register' }}
+      </button>
 
       <div class="login-link-wrapper">
         <a routerLink="/login" class="login-link">Login</a>

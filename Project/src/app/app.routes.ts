@@ -12,12 +12,14 @@ export const routes: Routes = [
   { path: 'payment-success', loadComponent: () => import('./pages/booking/payment-success/payment-success').then(m => m.PaymentSuccess) },
 
   { path: 'login', loadComponent: () => import('./pages/auth/login/login').then(m => m.Login) },
+  { path: 'auth', redirectTo: 'login', pathMatch: 'full' },
   { path: 'register', loadComponent: () => import('./pages/auth/register-user/register-user').then(m => m.RegisterUser) },
   { path: 'register-owner', loadComponent: () => import('./pages/auth/register-owner/register-owner').then(m => m.RegisterOwner) },
 
   { path: 'dashboard/admin', loadComponent: () => import('./pages/dashboard/admin/admin').then(m => m.Admin) },
   { path: 'dashboard/owner', loadComponent: () => import('./pages/dashboard/owner/owner').then(m => m.Owner) },
   { path: 'dashboard/user', loadComponent: () => import('./pages/dashboard/user/user').then(m => m.User) },
+  { path: 'me', loadComponent: () => import('./pages/dashboard/user/user').then(m => m.User) },
 
   { path: '**', redirectTo: 'home' }
 ];
