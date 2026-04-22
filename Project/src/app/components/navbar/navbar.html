@@ -7,16 +7,34 @@
   <nav class="header-menu">
     <ul class="header-menu-list">
       <li class="header-menu-item">
-        <a routerLink="/home" class="header-menu-link">Home</a>
+        <a
+          routerLink="/home"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          class="header-menu-link"
+        >Home</a>
       </li>
       <li class="header-menu-item">
-        <a routerLink="/home" class="header-menu-link">Hotels</a>
+        <a
+          routerLink="/home"
+          fragment="more-hotels"
+          routerLinkActive="active"
+          class="header-menu-link"
+        >Hotels</a>
       </li>
       <li class="header-menu-item">
-        <a href="/" class="header-menu-link">About</a>
+        <a
+          routerLink="/booking"
+          routerLinkActive="active"
+          class="header-menu-link"
+        >Booking</a>
       </li>
       <li class="header-menu-item">
-        <a href="/" class="header-menu-link">Contact</a>
+        <a
+          routerLink="/register-owner"
+          routerLinkActive="active"
+          class="header-menu-link"
+        >Become Owner</a>
       </li>
     </ul>
   </nav>
