@@ -50,17 +50,22 @@ def register(request):
 def login_view(request):
     """
     POST /users/login/
-    Body: { "username": "...", "password": "..." }
+    Body: { "email": "...", "password": "..." }
     Authenticates the user and returns a token.
     """
+    email = request.data.get('email')
     username = request.data.get('username')
     password = request.data.get('password')
 
-    if not username or not password:
+    if not (email or username) or not password:
         return Response(
-            {"error": "Username and password are required."},
+            {"error": "Email and password are required."},
             status=status.HTTP_400_BAD_REQUEST,
         )
+
+    if email and not username:
+        user_for_email = User.objects.filter(email__iexact=email).first()
+        username = user_for_email.username if user_for_email else None
 
     user = authenticate(username=username, password=password)
     if user is None:

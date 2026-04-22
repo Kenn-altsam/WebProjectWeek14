@@ -21,7 +21,6 @@
     </ul>
   </nav>
   <div class="header-actions" *ngIf="currentUser$ | async as user; else guestActions">
-    <a class="profile-link" routerLink="/dashboard/user">{{ user.username }}</a>
     <button class="login-button btn" type="button" (click)="logout()">
       Logout
     </button>

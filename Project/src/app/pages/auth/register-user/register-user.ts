@@ -48,7 +48,7 @@ export class RegisterUser {
     }).subscribe({
       next: () => {
         this.isLoading = false;
-        this.router.navigate(['/dashboard/user']);
+        this.router.navigate(['/home']);
       },
       error: (error) => {
         this.isLoading = false;

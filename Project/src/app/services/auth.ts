@@ -16,12 +16,14 @@ export interface AuthResponse {
 }
 
 export interface LoginPayload {
-  username: string;
+  email: string;
   password: string;
 }
 
-export interface RegisterPayload extends LoginPayload {
+export interface RegisterPayload {
+  username: string;
   email: string;
+  password: string;
   phone?: string;
 }
 
